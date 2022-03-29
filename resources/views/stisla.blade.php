@@ -38,6 +38,13 @@
       <!-- Main Content -->
       <div class="main-content">
         @yield('content')
+        <footer id="footer">
+          <div class="container">
+            <div class="copyright">
+              &copy; Copyright <strong><span>Naufal Arkan</span></strong>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   </div>
