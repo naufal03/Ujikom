@@ -17,8 +17,10 @@
       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto">
+            <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name}}</div>
           <a class="dropdown-item has-icon text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
             {{ __('Logout') }}
@@ -143,4 +145,3 @@
         </div>
       </div>
     @endsection
-		

@@ -18,6 +18,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto">
+            <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name }}</div>
           <a class="dropdown-item has-icon text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
             {{ __('Logout') }}
@@ -71,5 +72,36 @@
         </tr>
       </table>
     </form>
+  </div>
+  <div class="card-body">
+    <div class="table table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <th>No</th>
+          <th>Nama Pemesan</th>
+          <th>No Hp</th>
+          <th>Tipe Kamar</th>
+          <th>check In</th>
+          <th>check Out</th>
+          <th>Jumalah Kamar</th>
+          <th>No Kamar</th>
+        </thead>
+        <tbody>
+          @foreach ($resep as $rs)
+            <tr>
+              <td>{{ $loop->iteration }}</td>
+              <td>{{ $rs->name }}</td>
+              <td>{{ $rs->nohp }}</td>
+              <td>{{ $rs->type->name }}</td>
+              <td>{{ $rs->check_in }}</td>
+              <td>{{ $rs->check_out }}</td>
+              <td>{{ $rs->jumlah }}</td>
+              <td>{{ $rs->nokamar }}</td>
+
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
   </div>
 @endsection

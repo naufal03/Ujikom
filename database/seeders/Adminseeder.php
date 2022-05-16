@@ -21,7 +21,6 @@ class Adminseeder extends Seeder
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'email_verified_at' => now(),
-                'avatar' => 'image.png',
                 'level' => 'admin',
                 'password' => bcrypt('adminlogin')
             ],
@@ -29,7 +28,6 @@ class Adminseeder extends Seeder
                 'name' => 'customer',
                 'email' => 'customer@gmail.com',
                 'email_verified_at' => now(),
-                'avatar' => 'image.png',
                 'level' => 'customer',
                 'password' => bcrypt('customerlogin')
             ],

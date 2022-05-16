@@ -35,6 +35,7 @@
                   <th>check In</th>
                   <th>check Out</th>
                   <th>Jumalah Kamar</th>
+                  <th>No Kamar</th>
                 </thead>
                 <tbody>
                   @foreach ($resep as $rs)
@@ -46,7 +47,11 @@
                       <td>{{ $rs->check_in }}</td>
                       <td>{{ $rs->check_out }}</td>
                       <td>{{ $rs->jumlah }}</td>
+                      <td>{{ $rs->nokamar }}</td>
                       <td>
+
+                        <a href="{{ route('resepsionis.edit', $rs->id) }}" class="btn btn-outline-warning"><i
+                            class="fas fa-edit"></i></a>
                         <form action="{{ route('resepsionis.destroy', $rs->id) }}" method="post">
                           @csrf
                           @method('DELETE')

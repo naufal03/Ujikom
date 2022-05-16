@@ -14,7 +14,6 @@ class AddUsersField extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('avatar');
             $table->enum('level',['customer','admin'])->default('customer');
         });
     }

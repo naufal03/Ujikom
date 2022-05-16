@@ -33,8 +33,9 @@ class resepsionis extends Controller
     public function create()
     {
         //
+        $resep = transaction::all();
         $type = Type::all();
-        return view('user.form.index', compact('type'));
+        return view('user.form.index', compact('resep','type'));
     }
 
     /**
@@ -53,6 +54,7 @@ class resepsionis extends Controller
         $rs->check_in = $request->input('check_in');
         $rs->check_out = $request->input('check_out');
         $rs->jumlah = $request->input('jumlah');
+        $rs->nokamar = $request->input('nokamar');
         $rs->save();
         return redirect()->route('menu.index');
     }
@@ -77,6 +79,9 @@ class resepsionis extends Controller
     public function edit($id)
     {
         //
+        $type = Type::all();
+        $resep = transaction::find($id);
+        return view('admin.resepsionis.edit', compact('type','resep'));
     }
 
     /**
@@ -89,6 +94,16 @@ class resepsionis extends Controller
     public function update(Request $request, $id)
     {
         //
+        $rs = transaction::find($id);
+        $rs->name = $request->input('name');
+        $rs->nohp = $request->input('nohp');
+        $rs->type_id = $request->input('type_id');
+        $rs->check_in = $request->input('check_in');
+        $rs->check_out = $request->input('check_out');
+        $rs->jumlah = $request->input('jumlah');
+        $rs->nokamar = $request->input('nokamar');
+        $rs->save();
+        return redirect()->route('resepsionis.index');
     }
 
     /**

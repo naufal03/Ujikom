@@ -21,6 +21,7 @@ class CreateTransactionsTable extends Migration
             $table->date('check_in');
             $table->date('check_out');
             $table->integer('jumlah');
+            $table->integer('nokamar')->nullable();
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
             $table->timestamps();
         });

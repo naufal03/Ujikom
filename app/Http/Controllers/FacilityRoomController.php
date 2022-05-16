@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FacilityRoom;
 use App\Models\room;
+use App\Models\transaction;
 use Illuminate\Http\Request;
 
 class FacilityRoomController extends Controller
@@ -16,8 +17,10 @@ class FacilityRoomController extends Controller
     public function index()
     {
         //
+        $resep = transaction::all();
+        return view('user.form.index', compact('resep'));
 
-        
+
     }
 
     /**
@@ -50,6 +53,8 @@ class FacilityRoomController extends Controller
     public function show(FacilityRoom $facilityRoom)
     {
         //
+        $resep = transaction::all();
+        return view('user.form.index', compact('resep'));
     }
 
     /**
